@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Lunor App Studio turns an app idea into a plan, starter build, explanation, and learning path."
+    />
+    <title>Lunor App Studio — Concept Prototype</title>
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="ambient ambient-one"></div>
+    <div class="ambient ambient-two"></div>
+
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Lunor App Studio home">
+        <span class="brand-mark">L</span>
+        <span>LUNOR<span class="brand-muted">.APP</span></span>
+      </a>
+      <div class="topbar-center">
+        <span class="status-dot"></span>
+        <span>App Development Lab</span>
+        <span class="prototype-pill">CONCEPT PROTOTYPE</span>
+      </div>
+      <button class="ghost-button" id="exportButton" type="button" disabled>
+        Export blueprint
+      </button>
+    </header>
+
+    <main class="app-shell">
+      <aside class="brief-panel" aria-label="App idea controls">
+        <div class="panel-heading">
+          <p class="kicker">01 · YOUR IDEA</p>
+          <h1>What should we build?</h1>
+          <p>Describe the problem first. Lunor will turn it into a buildable learning project.</p>
+        </div>
+
+        <label class="field-label" for="ideaInput">App idea or problem</label>
+        <div class="prompt-box">
+          <textarea
+            id="ideaInput"
+            rows="7"
+            maxlength="1200"
+            placeholder="Example: Build a habit tracker for students that works offline, shows streaks, and keeps the daily flow simple."
+          ></textarea>
+          <div class="prompt-footer">
+            <span id="charCount">0 / 1200</span>
+            <span class="shortcut">Ctrl + Enter</span>
+          </div>
+        </div>
+
+        <div class="example-row" aria-label="Example prompts">
+          <button class="prompt-chip" type="button" data-prompt="Build a habit tracker for students that works offline, shows streaks, and keeps the daily flow simple.">Habit tracker</button>
+          <button class="prompt-chip" type="button" data-prompt="Create an expense tracker for college students with simple budgets and weekly spending insights.">Expense tracker</button>
+          <button class="prompt-chip" type="button" data-prompt="Plan a study app that turns an exam syllabus into short daily revision sessions.">Study planner</button>
+        </div>
+
+        <fieldset class="control-group">
+          <legend>Target platform</legend>
+          <div class="segmented-control">
+            <label><input type="radio" name="platform" value="cross-platform" checked /><span>Cross-platform</span></label>
+            <label><input type="radio" name="platform" value="android" /><span>Android</span></label>
+            <label><input type="radio" name="platform" value="ios" /><span>iOS</span></label>
+          </div>
+        </fieldset>
+
+        <div class="control-group">
+          <label class="field-label" for="experienceSelect">My experience</label>
+          <select id="experienceSelect">
+            <option value="beginner">Beginner — explain every decision</option>
+            <option value="intermediate">Intermediate — focus on structure</option>
+            <option value="advanced">Advanced — include trade-offs</option>
+          </select>
+        </div>
+
+        <fieldset class="control-group">
+          <legend>Important constraints</legend>
+          <div class="constraint-grid">
+            <label><input type="checkbox" value="offline-first" /><span>Offline-first</span></label>
+            <label><input type="checkbox" value="notifications" /><span>Notifications</span></label>
+            <label><input type="checkbox" value="authentication" /><span>Authentication</span></label>
+            <label><input type="checkbox" value="low-data" /><span>Low data use</span></label>
+          </div>
+        </fieldset>
+
+        <div class="generate-wrap">
+          <button class="primary-button" id="generateButton" type="button">
+            <span>Create app blueprint</span>
+            <span aria-hidden="true">✦</span>
+          </button>
+          <p class="form-error" id="formError" role="alert"></p>
+        </div>
+
+        <div class="how-it-works">
+          <span>Prompt</span><b>→</b><span>Understand</span><b>→</b><span>Build</span><b>→</b><span>Learn</span>
+        </div>
+      </aside>
+
+      <section class="workspace" aria-label="Generated app workspace">
+        <nav class="stage-nav" aria-label="Blueprint stages">
+          <button class="stage-tab active" type="button" data-stage="understand"><span>01</span> Understand</button>
+          <button class="stage-tab" type="button" data-stage="plan"><span>02</span> Plan</button>
+          <button class="stage-tab" type="button" data-stage="build"><span>03</span> Build</button>
+          <button class="stage-tab" type="button" data-stage="explain"><span>04</span> Explain</button>
+          <button class="stage-tab" type="button" data-stage="learn"><span>05</span> Learn</button>
+        </nav>
+
+        <div class="workspace-grid">
+          <div class="stage-surface" id="stageContent">
+            <div class="empty-state">
+              <div class="empty-orbit" aria-hidden="true"><span>✦</span></div>
+              <p class="kicker">APP DEVELOPMENT, WITH CONTEXT</p>
+              <h2>Don’t generate blindly.<br />Learn what you’re building.</h2>
+              <p>
+                Enter an app idea to see how Lunor turns an unclear prompt into a focused product,
+                a small architecture, starter code, and a learning path.
+              </p>
+              <div class="empty-steps" aria-label="Five-stage workflow">
+                <span>UNDERSTAND</span><i></i><span>PLAN</span><i></i><span>BUILD</span><i></i><span>EXPLAIN</span><i></i><span>LEARN</span>
+              </div>
+            </div>
+          </div>
+
+          <aside class="preview-panel" aria-label="Interactive app preview">
+            <div class="preview-heading">
+              <div>
+                <p class="kicker">LIVE PREVIEW</p>
+                <h2 id="previewTitle">Your app</h2>
+              </div>
+              <span class="preview-status"><span></span> Ready</span>
+            </div>
+
+            <div class="phone-frame" aria-label="Generated mobile app preview">
+              <div class="phone-screen">
+                <div class="phone-status"><span>9:41</span><span>● ◒ ▰</span></div>
+                <div class="phone-content">
+                  <p class="phone-eyebrow" id="phoneEyebrow">WELCOME</p>
+                  <h3 id="phoneGreeting">Your idea will appear here</h3>
+                  <p id="phoneSubtitle">Generate a blueprint to preview the product direction.</p>
+                  <div class="mini-progress"><span id="miniProgress"></span></div>
+                  <div class="phone-card-list" id="phoneCards">
+                    <div class="phone-card skeleton"></div>
+                    <div class="phone-card skeleton short"></div>
+                    <div class="phone-card skeleton"></div>
+                  </div>
+                  <button class="phone-action" id="phoneAction" type="button" disabled>Start building</button>
+                </div>
+                <div class="phone-tabs" id="phoneTabs">
+                  <span class="active">Home</span><span>Plan</span><span>Profile</span>
+                </div>
+              </div>
+            </div>
+            <p class="preview-note">The preview shows the product direction, not a final production build.</p>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="./app.js"></script>
+  </body>
+</html>
+
